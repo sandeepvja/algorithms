@@ -27,12 +27,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         @Override
         public ItemType next() {
-            if (iterRear == -1) {
+            if (iterRear < 0) {
                 throw new java.util.NoSuchElementException(); 
             }
-            int rand = StdRandom.uniform(rear + 1);
+            int rand = StdRandom.uniform(iterRear + 1);
             ItemType returnVal = iterableQueue[rand];
-            iterableQueue[rand] = iterableQueue[rear--];
+            iterableQueue[rand] = iterableQueue[iterRear--];
             return returnVal;
         }
 

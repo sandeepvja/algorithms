@@ -24,11 +24,13 @@ public class Deque<Item> implements Iterable<Item>{
 
 	@Override
 	public Item next() {
-		Item item = current.value;
-		current = current.next;
 		if (current == null) {
 			throw new NoSuchElementException();
 		}
+		
+		Item item = current.value;
+		current = current.next;
+		
 		return item;
 	}
 
